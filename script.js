@@ -1,20 +1,20 @@
 function mincost(arr)
-
+{
 // return the min cost
-    let minHeap = new MinHeap(arr);
-    res = 0;
-
-    while (minHeap.size > 1){
-		first = minHeap.pop();
-        second = minHeap.pop();
-
-        res = res + first + second;
-        minHeap.push(first + second);
+   let arrNew=arr.sort((a,b)=>{
+	return a-b;
+   });
+	console.log(arrNew);
+    while(arr.length>1){
+		let first=arrNew.shift();
+		let second=arrNew.shift();
+		let sum=first+second;
+		arrNew.push(sum);
+		arrNew.sort((a, b) => a - b);
+		
+		});
 	}
-       
-
-    return res;
-  
+	return arrNew[0];
 }
 
 module.exports=mincost;
